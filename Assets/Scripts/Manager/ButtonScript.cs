@@ -8,4 +8,14 @@ public class ButtonScript : MonoBehaviour
     public void StartScene(string sceneName) {
       SceneManager.LoadScene(sceneName);
     }
+
+    public void StartGiveInfo()
+    {
+        CharacterScript.isGiveInfo = true;
+    }
+
+    public void StartGiveQuest()
+    {
+        CharacterScript.isGiveQuest = true;
+    }
 }
