@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5415059658852931515
+  m_GuidHigh: 8906684518567869336
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5506312451829936213
+      m_GuidHigh: 5109956039038967485
+    m_SerializedTextureGuid:
+      m_GuidLow: 14597322188221773762
+      m_GuidHigh: 14899385098866014104
+    m_Size: {x: 0.13331996, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Lionfish
+    m_Texture: {fileID: 2800000, guid: b4e2f7c21b30ca949837a89dce3fc5ce, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4977480872445336172
+      m_GuidHigh: 9630903830701293481
+    m_SerializedTextureGuid:
+      m_GuidLow: 1631589534081528471
+      m_GuidHigh: 138766121883643288
+    m_Size: {x: 0.1, y: 0.15177067}
+    m_SpecifySize: 1
+    m_Name: Lionheart
+    m_Texture: {fileID: 2800000, guid: 662cb297920916a498adbb790dffec01, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5593714796719154102
+      m_GuidHigh: 531976013682612156
+    m_SerializedTextureGuid:
+      m_GuidLow: 15808820621736424668
+      m_GuidHigh: 11465192292668538953
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: qrcode
+    m_Texture: {fileID: 2800000, guid: c47834dc3698db6449000e1ea58b1c9f, type: 3}
