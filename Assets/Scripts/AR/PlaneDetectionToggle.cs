@@ -36,9 +36,6 @@ public class PlaneDetectionToggle : MonoBehaviour
       SetAllPlanesActive(false);
     }
     toggleButtonText.text = toggleButtonMessage;
-
-
-
   }
 
   private void SetAllPlanesActive(bool value)

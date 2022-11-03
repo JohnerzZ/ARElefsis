@@ -5,109 +5,114 @@ using UnityEngine;
 public class RomanCourtManager : MonoBehaviour
 {
 
-    public GameObject greeting,
-                      question1, question2, question3,
-                      answer1, answer2, answer3;
+    public GameObject greetingPanel,
+                      playerPanel1, playerPanel2, playerPanel3,
+                      characterPanel1, characterPanel2, characterPanel3;
 
-    private float time1 = 5f, time2 = 5f, time3 = 5f;
+    public float greetingTime,
+                 option1Time, option2Time, option3Time;
+
+    private bool isFirstTime = true;
 
     void Update()
     {
-        if(CharacterAnimation.isGreeting) {
-            StartCoroutine(GiveGreeting());
+        if(CharacterAnimation.isGreeting && isFirstTime) {
+            StartCoroutine(CharacterGreeting());
         }        
     }
 
-    public void PressQuestionOne()
+    public void PlayerOptionOne()
     {
-        StartCoroutine(GiveAnswerOne());
+        StartCoroutine(CharacterOptionOne());
     }
 
-    public void PressQuestionTwo()
+    public void PlayerOptionTwo()
     {
-        StartCoroutine(GiveAnswerTwo());
+        StartCoroutine(CharacterOptionTwo());
     }
 
-    public void PressQuestionThree()
+    public void PlayerOptionThree()
     {
-        StartCoroutine(GiveAnswerThree());
+        StartCoroutine(CharacterOptionThree());
     }
 
-    void ShowQuestions()
+    void ShowPlayerOptions()
     {
-        question1.SetActive(true);
-        question2.SetActive(true);
-        question3.SetActive(true);
+        playerPanel1.SetActive(true);
+        playerPanel2.SetActive(true);
+        playerPanel3.SetActive(true);
     }
 
-    void HideQuestions()
+    void HidePlayerOptions()
     {
-        question1.SetActive(false);
-        question2.SetActive(false);
-        question3.SetActive(false);
+        playerPanel1.SetActive(false);
+        playerPanel2.SetActive(false);
+        playerPanel3.SetActive(false);
     }
 
-    IEnumerator GiveGreeting()
+    IEnumerator CharacterGreeting()
     {
-        greeting.SetActive(true);
+        isFirstTime = false;
 
-        yield return new WaitForSeconds(5f);
+        greetingPanel.SetActive(true);
+
+        yield return new WaitForSeconds(greetingTime);
+
+        greetingPanel.SetActive(false);
 
         CharacterAnimation.isGreeting = false;
 
-        greeting.SetActive(false);
-
-        ShowQuestions();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveAnswerOne()
+    IEnumerator CharacterOptionOne()
     {
-        HideQuestions();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        answer1.SetActive(true);
+        characterPanel1.SetActive(true);
 
-        yield return new WaitForSeconds(time1);
+        yield return new WaitForSeconds(option1Time);
+
+        characterPanel1.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        answer1.SetActive(false);
-
-        ShowQuestions();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveAnswerTwo()
+    IEnumerator CharacterOptionTwo()
     {
-        HideQuestions();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        answer2.SetActive(true);
+        characterPanel2.SetActive(true);
 
-        yield return new WaitForSeconds(time2);
+        yield return new WaitForSeconds(option2Time);
+
+        characterPanel2.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        answer2.SetActive(false);
-
-        ShowQuestions();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveAnswerThree()
+    IEnumerator CharacterOptionThree()
     {
-        HideQuestions();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        answer3.SetActive(true);
+        characterPanel3.SetActive(true);
 
-        yield return new WaitForSeconds(time3);
+        yield return new WaitForSeconds(option3Time);
+
+        characterPanel3.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        answer3.SetActive(false);
-
-        ShowQuestions();
+        ShowPlayerOptions();
     }
 }

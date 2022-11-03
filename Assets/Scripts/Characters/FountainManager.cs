@@ -5,198 +5,203 @@ using UnityEngine;
 public class FountainManager : MonoBehaviour
 {
 
-    public GameObject greeting,
-                      question1Path1, question2Path1, question3Path1,
-                      question1Path2, question2Path2, question3Path2,
-                      answer1, answer2,
-                      answer1Path1, answer2Path1,
-                      answer1Path2, answer2Path2;
+    public GameObject greetingPanel,
+                      characterPath1Panel1, characterPath1Panel2, characterPath1Panel3,
+                      characterPath2Panel1, characterPath2Panel2, characterPath2Panel3,
+                      playerPath1Panel1, playerPath1Panel2, playerPath1Panel3,
+                      playerPath2Panel1, playerPath2Panel2, playerPath2Panel3;
 
 
-    private float time1 = 5f, time2 = 5f, time3 = 5f;
+    public float greetingTime,
+                 option1Path1Time, option2Path1Time, option3Path1Time,
+                 option1Path2Time, option2Path2Time, option3Path2Time;
 
     private bool isPath1 = false, isPath2 = false;
 
+    private bool isFirstTime = true;
+
     void Update()
     {
-        if(CharacterAnimation.isGreeting) {
-            StartCoroutine(GiveGreeting());
+        if(CharacterAnimation.isGreeting && isFirstTime) {
+            StartCoroutine(CharacterGreeting());
         }        
     }
 
-    public void PressAnswerOne()
+    public void PlayerOptionOnePathOne()
     {
-        StartCoroutine(GiveQuestionOnePathOne());
+        StartCoroutine(CharacterOptionOnePathOne());
         isPath1 = true;
     }
 
-    public void PressAnswerTwo()
+    public void PlayerOptionTwoPathOne()
     {
-        StartCoroutine(GiveQuestionOnePathTwo());
+        StartCoroutine(CharacterOptionTwoPathOne());
+    }
+
+    public void PlayerOptionThreePathOne()
+    {
+        StartCoroutine(CharacterOptionThreePathOne());
+    }
+
+    public void PlayerOptionOnePathTwo()
+    {
+        StartCoroutine(CharacterOptionOnePathTwo());
         isPath2 = true;
     }
 
-    public void PressAnswerOnePathOne()
+    public void PlayerOptionTwoPathTwo()
     {
-        StartCoroutine(GiveQuestionTwoPathOne());
+        StartCoroutine(CharacterOptionTwoPathTwo());
     }
 
-    public void PressAnswerTwoPathOne()
+    public void PlayerOptionThreePathTwo()
     {
-        StartCoroutine(GiveQuestionTwoPathTwo());
+        StartCoroutine(CharacterOptionThreePathTwo());
     }
 
-    public void PressAnswerOnePathTwo()
-    {
-        StartCoroutine(GiveQuestionThreePathOne());
-    }
-
-    public void PressAnswerTwoPathTwo()
-    {
-        StartCoroutine(GiveQuestionTwoPathTwo());
-    }
-
-    void ShowAnswers()
+    void ShowPlayerOptions()
     {
         if(isPath1)
         {
-            answer1Path1.SetActive(true);
-            answer2Path1.SetActive(true);
+            playerPath1Panel2.SetActive(true);
+            playerPath1Panel3.SetActive(true);
         }
         else if(isPath2)
         {
-            answer1Path2.SetActive(true);
-            answer2Path2.SetActive(true);
+            playerPath2Panel2.SetActive(true);
+            playerPath2Panel3.SetActive(true);
         }
         else
         {
-            answer1.SetActive(true);
-            answer2.SetActive(true);
+            playerPath1Panel1.SetActive(true);
+            playerPath2Panel1.SetActive(true);
         }
     }
 
-    void HideAnswers()
+    void HidePlayerOptions()
     {
-        answer1Path1.SetActive(false);
-        answer2Path1.SetActive(false);
-        answer1Path2.SetActive(false);
-        answer2Path2.SetActive(false);
-        answer1.SetActive(false);
-        answer2.SetActive(false);
+        playerPath1Panel1.SetActive(false);
+        playerPath1Panel2.SetActive(false);
+        playerPath1Panel3.SetActive(false);
+        playerPath2Panel1.SetActive(false);
+        playerPath2Panel2.SetActive(false);
+        playerPath2Panel3.SetActive(false);
     }
 
-    IEnumerator GiveGreeting()
+    IEnumerator CharacterGreeting()
     {
-        greeting.SetActive(true);
+        isFirstTime = false;
 
-        yield return new WaitForSeconds(5f);
+        greetingPanel.SetActive(true);
+
+        yield return new WaitForSeconds(greetingTime);
+
+        greetingPanel.SetActive(false);
 
         CharacterAnimation.isGreeting = false;
 
-        greeting.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionOnePathOne()
+    IEnumerator CharacterOptionOnePathOne()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question1Path1.SetActive(true);
+        characterPath1Panel1.SetActive(true);
 
-        yield return new WaitForSeconds(time1);
+        yield return new WaitForSeconds(option1Path1Time);
+
+        characterPath1Panel1.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question1Path1.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionTwoPathOne()
+    IEnumerator CharacterOptionTwoPathOne()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question2Path1.SetActive(true);
+        characterPath1Panel2.SetActive(true);
 
-        yield return new WaitForSeconds(time2);
+        yield return new WaitForSeconds(option2Path1Time);
+
+        characterPath1Panel2.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question2Path1.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionThreePathOne()
+    IEnumerator CharacterOptionThreePathOne()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question3Path1.SetActive(true);
+        characterPath1Panel3.SetActive(true);
 
-        yield return new WaitForSeconds(time3);
+        yield return new WaitForSeconds(option3Path1Time);
+
+        characterPath1Panel3.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question3Path1.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionOnePathTwo()
+    IEnumerator CharacterOptionOnePathTwo()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question1Path2.SetActive(true);
+        characterPath2Panel1.SetActive(true);
 
-        yield return new WaitForSeconds(time1);
+        yield return new WaitForSeconds(option1Path2Time);
+
+        characterPath2Panel1.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question1Path2.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionTwoPathTwo()
+    IEnumerator CharacterOptionTwoPathTwo()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question2Path2.SetActive(true);
+        characterPath2Panel2.SetActive(true);
 
-        yield return new WaitForSeconds(time2);
+        yield return new WaitForSeconds(option2Path2Time);
+
+        characterPath2Panel2.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question2Path2.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 
-    IEnumerator GiveQuestionThreePathTwo()
+    IEnumerator CharacterOptionThreePathTwo()
     {
-        HideAnswers();
+        HidePlayerOptions();
 
         CharacterAnimation.isTalking = true;
 
-        question3Path2.SetActive(true);
+        characterPath2Panel3.SetActive(true);
 
-        yield return new WaitForSeconds(time3);
+        yield return new WaitForSeconds(option3Path2Time);
+
+        characterPath2Panel3.SetActive(false);
 
         CharacterAnimation.isTalking = false;
 
-        question3Path2.SetActive(false);
-
-        ShowAnswers();
+        ShowPlayerOptions();
     }
 }

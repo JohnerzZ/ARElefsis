@@ -29,7 +29,6 @@ public class CharacterAnimation : MonoBehaviour
         {
             animator.SetBool("isTalking", true);
         }
-
         else
         {
             animator.SetBool("isTalking", false);

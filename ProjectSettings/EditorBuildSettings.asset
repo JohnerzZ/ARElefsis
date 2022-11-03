@@ -6,14 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu3D.unity
-    guid: 9b6d859750b963f489be5ba6dd7a90f4
-  - enabled: 1
-    path: Assets/Scenes/ImageTracking.unity
-    guid: 0759a8d872f38034eb0e52f5ddda1364
-  - enabled: 1
-    path: Assets/Scenes/PlaneTracking.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/ARScene.unity
+    guid: 66db9d63f6e380b45bdb357128c9f231
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 1520fd90d883657449d70516b75ea12b, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 32d3f387e9de319499973f46bd33448f, type: 2}
